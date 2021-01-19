@@ -98,8 +98,6 @@ Try out these commands before installing your release
 
 ## Exercises:
 
-- Make the service target port configurable in values.yaml
-
 - Add the environment variable FRIENDS to the deployment and make that configurable in values.yaml, then redeploy and confirm that the configured value gets returned by our service. You can also set variables at install time like this: `helm install <my-release> . --set <variable>=<value>`
 
 ## Templating example:
