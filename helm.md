@@ -123,6 +123,10 @@ _deployment.yaml_
 value: {{ template "friends" . }}
 ```
 
+## Exercise
+Change our friends template to have it set several environment variables, friend1, friend2, etc
+Hints: https://helm.sh/docs/chart_template_guide/control_structures/ <-- check out the section about the `range keyword`
+
 More template/pipeline examples: https://helm.sh/docs/chart_template_guide/functions_and_pipelines/  
 Useful helm tips/tricks: https://helm.sh/docs/howto/charts_tips_and_tricks/  
 More on helm templating: https://helm.sh/docs/chart_template_guide/
