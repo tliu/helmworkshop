@@ -14,9 +14,7 @@ app.get('/*', (req, res) => {
     'Hello World from ' +
       ip.address() +
       ' and your friends at ' +
-      process.env.FRIENDS +
-      '. Deployed at ' +
-      process.env.DEPLOYDATE,
+      process.env.FRIENDS
   );
   console.log('handled request');
 });
