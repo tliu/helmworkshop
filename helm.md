@@ -100,6 +100,24 @@ Try out these commands before installing your release
 
 - Add the environment variable FRIENDS to the deployment and make that configurable in values.yaml, then redeploy and confirm that the configured value gets returned by our service. You can also set variables at install time like this: `helm install <my-release> . --set <variable>=<value>`
 
+<spoiler>
+    
+_values.yaml_
+```
+app:
+  friends: "ben and thomas"
+```
+
+_deployment.yaml_ (in the containers section)
+```
+env:
+- name: "FRIENDS             
+  value: {{ .Values.app.friends | quote }}
+```
+_result_
+`Hello World from 10.1.106.125 and your friends at ben and thomas"`
+</spoiler>
+
 ## Templating example:
 
 Let's make it so we can specify a list of friends in values.yaml like so
