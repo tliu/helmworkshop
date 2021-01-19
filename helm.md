@@ -76,13 +76,14 @@ Edit our service template so that the container port 80 points to the correct po
 Edit ingress to use the newer version of k
 
 ```
-repository: 10.1.31.199:32000/<your-name>/demowebapp
+repository: localhost:32000/<your-name>/demowebapp
 tag: v1.0.0
 ```
 
 Try out these commands before installing your release  
 `helm lint .` lints your chart for errors.  this can be very helpful for diagnosing whitespace errors -- helm is very specific about whitespace (2 spaces, not tabs!)  
 `helm template .` shows your what your entire chart looks like after templating  
+`helm install --dry-run ." do a dry run of the chart installtion  
 `helm install <your-release-name> .` install this chart!  
 
 Check that things are working:
@@ -93,12 +94,32 @@ Check that things are working:
 Exercises:  
 - Make the service target port configurable in values.yaml  
 
-- Add the environment variable FRIENDS to the deployment and make that configurable in values.yaml, then redeploy and confirm that the configured value gets returned by our service.  
-`helm install <my-release> . --set <variable>=<value>`
+- Add the environment variable FRIENDS to the deployment and make that configurable in values.yaml, then redeploy and confirm that the configured value gets returned by our service.   You can also set variables at install time like this: `helm install <my-release> . --set <variable>=<value>`
 
+Templating example:
+Let's make it so we can specify a list of friends in values.yaml like so  
+_values.yaml_
+```
+app:
+  friends:
+  - "ben"
+  - "thomas"
+```
+
+_deployment.yaml_
+```
+{{- define "friends" -}}
+{{- join "," .Values.app.friends | upper | quote }}
+{{- end -}}
+
+# new value for our env var
+value: {{ template "friends" . }}
+```
+
+More template/pipeline examples: https://helm.sh/docs/chart_template_guide/functions_and_pipelines/  
 Useful helm tips/tricks: https://helm.sh/docs/howto/charts_tips_and_tricks/  
 More on helm templating: https://helm.sh/docs/chart_template_guide/
 
 ## Using helm at vivint:
 https://source.vivint.com/projects/PL/repos/servicegen/browse generates services with a basic chart for you. 
-`helm lint`, `helm template`, `helm install` are very useful for debugging and testing your chart without needed to go through mrmeseeks.
+`helm lint`, `helm template`, `helm install --dry-run` are very useful for debugging and testing your chart without needed to go through mrmeseeks.
