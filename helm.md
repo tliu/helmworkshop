@@ -113,6 +113,7 @@ app:
 ```
 Also let's make it so that if it's not specified, there is a default of "all your friends at  vivint".  Also because we like shouting let's make it turn all of our friends uppercase.
 
+Expand this for spoilers
 <details>
 _deployment.yaml_
 
