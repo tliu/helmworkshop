@@ -86,17 +86,17 @@ Try out these commands before installing your release
 `helm install --dry-run ." do a dry run of the chart installtion  
 `helm install <your-release-name> .` install this chart!  
 
-Check that things are working:
+##Check that things are working:
 `kubectl port-forward <pod name> 8090:8080`
 - Navigate to our service in your browser. 
 - Take a look at templates/tests and try running the test with `helm test <my-release>`
 
-Exercises:  
+##Exercises:  
 - Make the service target port configurable in values.yaml  
 
 - Add the environment variable FRIENDS to the deployment and make that configurable in values.yaml, then redeploy and confirm that the configured value gets returned by our service.   You can also set variables at install time like this: `helm install <my-release> . --set <variable>=<value>`
 
-Templating example:
+##Templating example:
 Let's make it so we can specify a list of friends in values.yaml like so  
 _values.yaml_
 ```
