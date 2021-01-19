@@ -108,12 +108,13 @@ app:
 _deployment.yaml_
 ```
 {{- define "friends" -}}
-{{- join "," .Values.app.friends | upper | quote }}
+{{- join "," .Values.app.friends | default "all your friends at vivint" | upper | quote }}
 {{- end -}}
 
 # new value for our env var
 value: {{ template "friends" . }}
 ```
+
 
 More template/pipeline examples: https://helm.sh/docs/chart_template_guide/functions_and_pipelines/  
 Useful helm tips/tricks: https://helm.sh/docs/howto/charts_tips_and_tricks/  
