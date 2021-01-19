@@ -122,16 +122,18 @@ _deployment.yaml_
 # new value for our env var
 value: {{ template "friends" . }}
 ```
+## Using helm at vivint:
 
-## Exercise
+https://source.vivint.com/projects/PL/repos/servicegen/browse generates services with a basic chart for you.
+`helm lint`, `helm template`, `helm install --dry-run` are very useful for debugging and testing your chart without needed to go through mrmeseeks.
+
+## Additional templating exercise
 Change our friends template to have it set several environment variables, friend1, friend2, etc instead of a single list  
 Hints: https://helm.sh/docs/chart_template_guide/control_structures/ <-- check out the section about the `range keyword`  
+
+## Useful links
   
 More template/pipeline examples: https://helm.sh/docs/chart_template_guide/functions_and_pipelines/  
 Useful helm tips/tricks: https://helm.sh/docs/howto/charts_tips_and_tricks/  
 More on helm templating: https://helm.sh/docs/chart_template_guide/
 
-## Using helm at vivint:
-
-https://source.vivint.com/projects/PL/repos/servicegen/browse generates services with a basic chart for you.
-`helm lint`, `helm template`, `helm install --dry-run` are very useful for debugging and testing your chart without needed to go through mrmeseeks.
