@@ -111,7 +111,7 @@ app:
 _deployment.yaml_ (in the containers section)
 ```
 env:
-- name: "FRIENDS             
+- name: "FRIENDS"             
   value: {{ .Values.app.friends | quote }}
 ```
 _result_
