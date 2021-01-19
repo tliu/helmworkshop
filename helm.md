@@ -89,7 +89,6 @@ Try out these commands before installing your release
 ## Check that things are working:
 `kubectl port-forward <pod name> 8090:8080`
 - Navigate to our service in your browser. 
-- Take a look at templates/tests and try running the test with `helm test <my-release>`
 
 ## Exercises:  
 - Make the service target port configurable in values.yaml  
