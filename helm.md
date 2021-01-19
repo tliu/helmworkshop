@@ -88,7 +88,7 @@ tag: v1.0.0
 Try out these commands before installing your release  
 `helm lint .` lints your chart for errors. this can be very helpful for diagnosing whitespace errors -- helm is very specific about whitespace (2 spaces, not tabs!)  
 `helm template .` shows your what your entire chart looks like after templating  
-`helm install --dry-run ." do a dry run of the chart installtion`helm install <your-release-name> .` install this chart!
+`helm install --dry-run . do a dry run of the chart installtion`helm install <your-release-name> .` install this chart!
 
 ## Check that things are working:
 
