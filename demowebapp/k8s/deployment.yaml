@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: demodeploy
+  name: demodeploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: demodeploy
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: demodeploy
+    spec:
+      containers:
+        - image: localhost:32000/<your name>/test:latest
+          name: test

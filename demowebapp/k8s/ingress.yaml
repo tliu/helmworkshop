@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: demodeploy
+spec:
+  rules:
+    - host: hostname.com
+      http:
+        paths:
+          - backend:
+              serviceName: someservice
+              servicePort: 8888
+            path: /<namespace>/
