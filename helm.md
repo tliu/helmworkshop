@@ -102,7 +102,7 @@ Try out these commands before installing your release
 
 ## Templating example:
 
-Let's make it so we can specify a list of friends in values.yaml like so  
+Let's make it so we can specify a list of friends in values.yaml like so
 _values.yaml_
 
 ```
@@ -111,7 +111,9 @@ app:
   - "ben"
   - "thomas"
 ```
+Also let's make it so that if it's not specified, there is a default of "all your friends at  vivint".  Also because we like shouting let's make it turn all of our friends uppercase.
 
+<details>
 _deployment.yaml_
 
 ```
@@ -122,6 +124,8 @@ _deployment.yaml_
 # new value for our env var
 value: {{ template "friends" . }}
 ```
+</details>  
+
 ## Using helm at vivint:
 
 https://source.vivint.com/projects/PL/repos/servicegen/browse generates services with a basic chart for you.
