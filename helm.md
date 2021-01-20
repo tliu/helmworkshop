@@ -36,8 +36,8 @@ An instance of a chart running in a kubernetes cluster. One chart could be insta
 
 ## find and install a mongo chart in your namespace and then uninstall it
 
-Add the stable repo
-`helm repo add "stable" "https://charts.helm.sh/stable"`
+Add the bitnami repo
+`helm repo add "bitnami" "https://charts.bitnami.com/bitnami"`
 
 See what is available in the repo  
 `helm search repo mongo`
